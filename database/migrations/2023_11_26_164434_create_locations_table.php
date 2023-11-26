@@ -12,7 +12,7 @@ return new class extends Migration {
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('address');
+            $table->string('address');
             $table->string('zip_code');
             $table->string('country');
             $table->string('city');
