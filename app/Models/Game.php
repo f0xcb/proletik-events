@@ -10,6 +10,7 @@ class Game extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['date_time', 'location_id', 'home_team_id', 'guest_team_id', 'home_team_points', 'guest_team_points', 'league', 'season'];
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class, 'location_id');
