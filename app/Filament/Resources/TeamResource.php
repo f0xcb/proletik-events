@@ -17,14 +17,21 @@ class TeamResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-user-group';
 
+    public static function getNavigationLabel(): string
+    {
+        return __('resources.team.navigation');
+    }
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
                 Forms\Components\TextInput::make('name')
+                    ->label(__('resources.team.name'))
                     ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('logo')
+                    ->label(__('resources.team.logo'))
             ]);
     }
 
@@ -33,8 +40,10 @@ class TeamResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')
+                    ->label(__('resources.team.name'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('logo')
+                    ->label(__('resources.team.logo'))
                     ->searchable(),
                 Tables\Columns\TextColumn::make('created_at')
                     ->dateTime()
